@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main>
+
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+    <h3>{{ album.title }} Photos</h3>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% if data %}
+        {% for album in data %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="{{ album.image.url }}"/>
+
+            <div class="card-body">
+              <a href="{{ album.id }}"class="card-text">{{ album.alt_txt }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+</main>
+
+{% endblock content %}

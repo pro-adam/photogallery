@@ -1,0 +1,18 @@
+<!-- registration/login.html -->
+
+{% block title %}Signup{% endblock %}
+
+{% block content %}
+<p>{{ msg }}</p>
+  <h2>Signup</h2>
+    <form method="POST">
+      {% csrf_token %}
+      <table>
+        {{ form.as_p }}
+        <tr>
+          <td>&nbsp;</td>
+          <td><input type="submit" value="Submit"></td>
+        </tr>                
+      </table>
+    </form>
+{% endblock %}
