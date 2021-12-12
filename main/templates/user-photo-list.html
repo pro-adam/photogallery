@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+  <h4><a class='btn btn-success'href="{% url 'add_photo' %}">Add Photo</a></h4>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Photo</th>
+        <th>Photo text</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if photos %}
+        {% for photo in photos %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>
+            <img src="{{photo.image.url}} "/>
+            
+          </td>
+          <td>{{photo.alt_txt}}</td>
+          <td>
+            <a class="btn btn-danger" href="{% url 'delete-photo-list' photo.album.id photo.id %}" >Delete</a>
+          </td>
+        </tr>
+        {% endfor%}
+      {% endif %}
+    </tbody>
+  </table>
+</div>
+{% endblock content %}
